@@ -1,6 +1,3 @@
-   
-*Why ?*
- I was disappointed by  most tutorials on memory attacks as they are only on 32bits. I want to look into exploiting simple vulnerabilities on modern 64 bits Windows / Linux OS such as  stack overflow, heap overflow and so on. 
 
 
 *Quick notes* 
@@ -286,14 +283,17 @@ NX is enabled
 
 
 
-CHAPTER 1 : x64 , 64 bits baby 
 
 
-PART 1 
+[[[[[ CHAPTER 1 : x64 , 64 bits baby ]]]]]
 
----------------------------- 1. : the bof 
 
-Stack overflow on 64 bits without ASLR and canaries and NX 
+PART 1 : STACK 
+
+
+---------------------------- 1. the baby 
+
+Stack overflow on 64 bits without ASLR or canaries or NX 
 
 ASLR OFF / Canaries OFF / NX OFF
 
@@ -391,7 +391,7 @@ DONE /rootdance
 still need to know why NX is disabled by default ? 
 
 
-------------------------  2. : the classico 
+------------------------  2. the classico 
 
 ASLR OFF / Canaries OFF (default) / NX ON 
 
@@ -505,7 +505,7 @@ DONE  /rootdance
 
 
 
------------------------------------ 3. : the stack 
+----------------------------------- 3. the protected stack 
         
     
 Stack overflow on 64bits with ASLR and canaries : 
@@ -515,7 +515,7 @@ NO PIE , so no relocation of the binary, always loaded at same address 0x0000040
 
 Set GDB aslr ON 
 
-Ok its exactly the same as above except you dont use library address =D easy ?  
+Ok its exactly the same as above except you dont use library address, easy ? :D   
 
 
 
@@ -594,21 +594,28 @@ Segmentation fault
 
 
 
-Chapter X : The monster 
+---------------------------------------- 4. The monster 
 
-Full ASLR (PIE code) 
+Full ASLR (and PIE code), NX, Canaries  
 
 http://cybersecurity.upv.es/attacks/offset2lib/offset2lib.html
 
 
 
-Part 2 : BUGS exploits 
-
-BUGS !  bugs everywhere 
 
 
 
------------ 1. One byte write is enough  ! 
+
+
+PART 2: SPECIFIC BUGS EXPLOITATION  
+
+BUGS!  bugs everywhere !!!  
+
+
+
+
+------------------------------ 1. the onebyte is enough  
+
 
 Almost FULL PROTECTION =D 
 ASLR ON / Canaries ON / NX ON / PIE OFF 
@@ -621,16 +628,8 @@ Program code
 
 
 
------------------------ 
 
-
-Part 3 : Heap overflows 
-Lets go into hard mode 
-
-
-
-
----------------------- A0. Arbitrary write exploit , arbiter , arbwrite 
+---------------------------- 2. the write what where  
 
 
 Protection OFF except NX and ASLR 
@@ -674,6 +673,26 @@ Return address into libc ?
 
 
 
+
+
+PART 3  HEAP OVERFLOWS 
+
+ 
+Lets go into hard mode...
+
+
+
+
+
+
+
+
+
+
+[[[[[ CHAPTER 2 : WINDOWS ]]]]]
+
+
+TO DO 
 
 
 
